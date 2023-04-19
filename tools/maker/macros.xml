@@ -6,7 +6,7 @@
             <yield />
         </requirements>
     </xml>
-    <token name="@VERSION@">2.31.11</token>
+    <token name="@VERSION@">3.01.03</token>
     <token name="@SUFFIX_VERSION@">2</token>
 
     <xml name="citations">
