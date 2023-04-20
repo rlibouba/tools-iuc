@@ -136,6 +136,124 @@
                 </assert_contents>
             </output>
         </test>
+
+        <test expect_num_outputs="1">
+            <!--TODO: auto-generated test case. Please fill in the required values-->
+            <param name="genomic_fasta" value=""/>
+            <param name="species" value=""/>
+            <param name="output" value=""/>
+            <section name="predictions_parameters">
+                <param name="batch-size" value="8"/>
+            </section>
+            <section name="Post-processing">
+                <param name="window-size" value="100"/>
+                <param name="min-coding-length" value="100"/>
+                <param name="edge-threshold" value="0.1"/>
+                <param name="peak-threshold" value="0.8"/>
+            </section>
+            <conditional name="lineage">
+                <param name="lineages" value="none"/>
+            </conditional>
+            <output name="output">
+            </output>
+        </test>
+        
+        <test expect_num_outputs="1">
+            <!--TODO: auto-generated test case. Please fill in the required values-->
+            <param name="genomic_fasta" value=""/>
+            <param name="species" value=""/>
+            <param name="output" value=""/>
+            <section name="predictions_parameters">
+                <param name="batch-size" value="8"/>
+            </section>
+            <section name="Post-processing">
+                <param name="window-size" value="100"/>
+                <param name="min-coding-length" value="100"/>
+                <param name="edge-threshold" value="0.1"/>
+                <param name="peak-threshold" value="0.8"/>
+            </section>
+            <conditional name="lineage">
+                <param name="lineages" value="land_plant"/>
+                <param name="subsequence-length" value="106920"/>
+                <param name="overlap-offset" value="53460"/>
+                <param name="overlap-core-length" value="80190"/>
+            </conditional>
+            <output name="output">
+            </output>
+        </test>
+        
+        <test expect_num_outputs="1">
+            <!--TODO: auto-generated test case. Please fill in the required values-->
+            <param name="genomic_fasta" value=""/>
+            <param name="species" value=""/>
+            <param name="output" value=""/>
+            <section name="predictions_parameters">
+                <param name="batch-size" value="8"/>
+            </section>
+            <section name="Post-processing">
+                <param name="window-size" value="100"/>
+                <param name="min-coding-length" value="100"/>
+                <param name="edge-threshold" value="0.1"/>
+                <param name="peak-threshold" value="0.8"/>
+            </section>
+            <conditional name="lineage">
+                <param name="lineages" value="vertebrate"/>
+                <param name="subsequence-length" value="213840"/>
+                <param name="overlap-offset" value="106920"/>
+                <param name="overlap-core-length" value="160380"/>
+            </conditional>
+            <output name="output">
+            </output>
+        </test>
+        
+        <test expect_num_outputs="1">
+            <!--TODO: auto-generated test case. Please fill in the required values-->
+            <param name="genomic_fasta" value=""/>
+            <param name="species" value=""/>
+            <param name="output" value=""/>
+            <section name="predictions_parameters">
+                <param name="batch-size" value="8"/>
+            </section>
+            <section name="Post-processing">
+                <param name="window-size" value="100"/>
+                <param name="min-coding-length" value="100"/>
+                <param name="edge-threshold" value="0.1"/>
+                <param name="peak-threshold" value="0.8"/>
+            </section>
+            <conditional name="lineage">
+                <param name="lineages" value="invertebrate"/>
+                <param name="subsequence-length" value="213840"/>
+                <param name="overlap-offset" value="106920"/>
+                <param name="overlap-core-length" value="160380"/>
+            </conditional>
+            <output name="output">
+            </output>
+        </test>
+        
+        <test expect_num_outputs="1">
+            <!--TODO: auto-generated test case. Please fill in the required values-->
+            <param name="genomic_fasta" value=""/>
+            <param name="species" value=""/>
+            <param name="output" value=""/>
+            <section name="predictions_parameters">
+                <param name="batch-size" value="8"/>
+            </section>
+            <section name="Post-processing">
+                <param name="window-size" value="100"/>
+                <param name="min-coding-length" value="100"/>
+                <param name="edge-threshold" value="0.1"/>
+                <param name="peak-threshold" value="0.8"/>
+            </section>
+            <conditional name="lineage">
+                <param name="lineages" value="fungi"/>
+                <param name="subsequence-length" value="21384"/>
+                <param name="overlap-offset" value="106920"/>
+                <param name="overlap-core-length" value="160380"/>
+            </conditional>
+            <output name="output">
+            </output>
+        </test>
+
     </tests>
     <help><![CDATA[
     
