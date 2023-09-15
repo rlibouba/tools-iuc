@@ -1,0 +1,7 @@
+categories: [Genome annotation]
+description: TSEBRA has been developed to combine BRAKER predicitons to increase their accuracies.
+homepage_url: https://github.com/Gaius-Augustus/TSEBRA/
+long_description: TSEBRA is a combiner tool that selects transcripts from gene predictions based on the support by extrisic evidence in form of introns and start/stop codons.
+owner: iuc
+name: tsebra
+remote_repository_url: https://github.com/galaxyproject/tools-iuc/tree/master/tools/tsebra/
