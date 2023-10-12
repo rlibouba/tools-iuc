@@ -24,9 +24,6 @@
         -c '$cfg_file'
     #end if
 
-    #if $ignore_transcrpts
-        --ignore_tx_phase
-    #end if
     #if $filter_exon
         --filter_single_exon_genes
     #end if
@@ -38,13 +35,17 @@
 
     ]]></command>
     <inputs>
-        <param name="gtf_file" argument="-g" type="data" format="gtf" optional="true" label="List of gene prediciton files"/>
-        <param name="keep_gtf" argument="-k" type="data" format="gtf" optional="true" label="Gene prediction list" help="All transcripts from these gene sets will be included in the output"/>
+        <param name="gtf_input" type="data" format="gtf" label="GTF input"/>
+        <param name="gtf_file" type="boolean" truevalue="-g" label="List of gene prediciton files"/>
+        <param name="keep_gtf" type="boolean" truevalue="-k" label="Gene prediction list" help="All transcripts from these gene sets will be included in the output"/>
+
         <param name="hint_file" argument="-e" type="data" format="gff" optional="true" label="List of files containing extrinsic evidence"/>
         <param name="cfg_file" argument="-c" type="data" format="txt" optional="true" label="Configuration file" help="Find the recommanded parameter at config/default.cfg"/>
         <param name="score_tab" argument="-s" type="boolean" checked="false" label="Print the transcript scores as a table to the specified file"/>
         <param name="ignore_transcrpts" type="boolean" label="Ignore the phase transcripts while detecting clusters of overlapping transcripts"/>
         <param name="filter_exon" type="boolean" label="Filter out all single-exon genes"/>
+        <param argument="--ignore_tx_phase" type="boolean" truevalue="--ignore_tx_phase" falsevalue="" label="Ignore the phase transcripts while detecting clusters of overlapping transcripts"/>
+
     </inputs>
 
     <outputs>
