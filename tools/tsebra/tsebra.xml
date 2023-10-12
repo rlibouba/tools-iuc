@@ -10,13 +10,14 @@
     <command detect_errors="exit_code"><![CDATA[
     /home/rlibouba/Test/TSEBRA/bin/tsebra.py
         
-
-    #if $gtf_file
-        -g '$gtf_file'
-    #end if        
-    #if $keep_gtf
-        -k '$keep_gtf'
+    #if str( $Input.gtf_file_param ) == "GTF":
+        -g '$gtf_input'
+    #elif str( $Input.gtf_file_param ) == "KEEP_GTF":
+        -k '$gtf_input'
     #end if
+    
+    $ignore_tx_phase
+
     #if $hint_file
         -e '$hint_file'
     #end if
@@ -36,9 +37,12 @@
     ]]></command>
     <inputs>
         <param name="gtf_input" type="data" format="gtf" label="GTF input"/>
-        <param name="gtf_file" type="boolean" truevalue="-g" label="List of gene prediciton files"/>
-        <param name="keep_gtf" type="boolean" truevalue="-k" label="Gene prediction list" help="All transcripts from these gene sets will be included in the output"/>
-
+        <conditional name="Input">
+            <param name="gtf_file_param" type="select" label="Choose the analysis parameter for the gtf file" help="TODO">
+                <option value="GTF" selected="true">List of gene prediciton files</option>
+                <option value="KEEP_GTF">Gene prediction list</option>
+            </param>
+        </conditional>
         <param name="hint_file" argument="-e" type="data" format="gff" optional="true" label="List of files containing extrinsic evidence"/>
         <param name="cfg_file" argument="-c" type="data" format="txt" optional="true" label="Configuration file" help="Find the recommanded parameter at config/default.cfg"/>
         <param name="score_tab" argument="-s" type="boolean" checked="false" label="Print the transcript scores as a table to the specified file"/>
@@ -57,9 +61,16 @@
 
     <tests>
         <test expect_num_outputs="1">
-            <param name="gtf_file" value="braker.gtf" ftype="gtf"/>
+            <param name="gtf_input" value="braker.gtf" ftype="gtf"/>
             <param name="hint_file" value="hintsfile.gff" ftype="gff"/>
-            <output name="output" ftype="gtf">
+            <param name="score_tab" value="false"/>
+            <param name="ignore_transcrpts" value="false"/>
+            <param name="filter_exon" value="false"/>
+            <param name="ignore_tx_phase" value="false"/>
+            <conditional name="Input">
+                <param name="gtf_file_param" value="GTF"/>
+            </conditional>
+            <output name="output">
                 <assert_contents>
                     <has_text text='scaffold_1'/>
                     <has_text text='transcript_id "anno1.g2.t2"; gene_id "g_2"'/>
@@ -67,13 +78,18 @@
                 </assert_contents>
             </output>
         </test>
+        
         <test expect_num_outputs="2">
-            <param name="keep_gtf" value="braker.gtf" ftype="gtf"/>
+            <param name="gtf_input" value="braker.gtf" ftype="gtf"/>
             <param name="hint_file" value="hintsfile.gff" ftype="gff"/>
             <param name="score_tab" value="true"/>
             <param name="ignore_transcrpts" value="false"/>
             <param name="filter_exon" value="false"/>
-            <output name="output" ftype="gtf">
+            <param name="ignore_tx_phase" value="false"/>
+            <conditional name="Input">
+                <param name="gtf_file_param" value="KEEP_GTF"/>
+            </conditional>
+            <output name="output">
                 <assert_contents>
                     <has_text text='transcript_id "anno1.g1.t1"; gene_id "g_1"'/>
                 </assert_contents>
