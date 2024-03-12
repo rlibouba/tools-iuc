@@ -3,6 +3,9 @@
     <macros>
         <import>macros.xml</import>
     </macros>
+    <xrefs>
+        <xref type="bio.tools">qiime_core</xref>
+    </xrefs>
     <expand macro="requirements">
         <requirement type="package" version="2.1b">sortmerna</requirement>
         <!--<requirement type="package" version="1.38.1.1">mothur</requirement>-->

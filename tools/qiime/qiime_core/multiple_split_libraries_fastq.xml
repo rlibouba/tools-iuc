@@ -3,6 +3,9 @@
     <macros>
         <import>macros.xml</import>
     </macros>
+    <xrefs>
+        <xref type="bio.tools">qiime_core</xref>
+    </xrefs>
     <expand macro="requirements"/>
     <version_command>multiple_split_libraries_fastq.py -v</version_command>
     <command detect_errors="aggressive"><![CDATA[
